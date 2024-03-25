@@ -48,7 +48,10 @@ app.get('/download', function (req, res) {
             }else{
                 responses = [];
                 row.eachCell((cell, cellNumber) => {
-                    responses.push(cell.value);
+                    if(cell.value)
+                        responses.push(cell.value);
+                    else
+                        responses.push("");
                 });
                 document.data = {
                     questions: questions,
