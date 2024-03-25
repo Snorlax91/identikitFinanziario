@@ -3,6 +3,7 @@
     "archiver": "^7.0.1",
     "exceljs": "^4.4.0",
     "express": "^4.19.1",
+    "multer": "^1.4.5-lts.1",
     "pdf-creator-node": "^2.3.5",
     "phantomjs-prebuilt": "^2.1.16"
   }
