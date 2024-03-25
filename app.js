@@ -110,6 +110,30 @@ function zip(dirname, fileNames, res) {
     outputZip.on('close', function() {
         console.log('Archivio creato con successo!');
         res.download(dirname + '/output.zip');
+        removeFiles(dirname);
+    });
+
+}
+
+function removeFiles(directoryPath) {
+
+    fs.readdir(directoryPath, (err, files) => {
+        if (err) {
+            console.error('Errore nella lettura della cartella:', err);
+            return;
+        }
+    
+        // Per ogni file nella cartella, rimuovilo
+        files.forEach(file => {
+            const filePath = `${directoryPath}/${file}`;
+            fs.unlink(filePath, err => {
+                if (err) {
+                    console.error(`Errore nella rimozione del file ${filePath}:`, err);
+                } else {
+                    console.log(`File ${filePath} rimosso con successo`);
+                }
+            });
+        });
     });
 
 }
