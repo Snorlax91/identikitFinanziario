@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+ <html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Report identikit</title>
+        <link href='https://fonts.googleapis.com/css?family=Merriweather Sans' rel='stylesheet'>
+    </head>
+    <style>
+        body{            
+            font-family:  'Merriweather Sans';
+        }
+        .introduzione{
+            font-size: 11px;
+        }
+        .titolo-sezione{
+            font-weight: bold;
+            line-height: 50px;
+            background-color: cadetblue;
+            padding: 30px;
+            font-size: 18px;
+        }
+        .domanda{
+            font-weight: bold;
+            font-size: 15px;
+        }
+        .risposta{
+            font-size: 11px;
+        }
+    </style>
+    <body>
+        <div class="introduzione">
+            Gentile {{responses.[4]}},
+            ecco le risposte che hai fornito in  {{responses.[2]}}  al tuo Identikit Finanziario.
+            Nel prossimo incontro, partiremo da qui per definire la strategia più corretta per raggiungere i tuoi obiettivi.
+        </div>
+        <div class="sezione">
+            <div class="titolo-sezione">
+                Obiettivi Finanziari
+            </div>
+            <div class="domanda">
+                {{questions.[7]}}
+            </div>
+            <div class="risposta">
+                {{responses.[5]}}
+            </div>
+            <div class="domanda">
+                {{questions.[8]}}
+            </div>
+            <div class="risposta">
+                {{responses.[6]}}
+            </div>
+            <div class="domanda">
+                {{questions.[9]}}
+            </div>
+            <div class="risposta">
+                {{responses.[7]}}
+            </div>
+        </div>
+
+    </body>
+</html>  
