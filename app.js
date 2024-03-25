@@ -26,6 +26,10 @@ var document = {
 
 var options = { format: "A4", orientation: "portrait", border: "10mm" };
 
+app.get('/index', function (req, res){
+    res.end("<html><h1>ciao Elena!</h1></html>");
+})
+
 app.get('/download', function (req, res) {
     var filePath = "/my/file/path/..."; // Or format the path using the `id` rest param
     var fileName = "report.pdf"; // The default name the browser will use
