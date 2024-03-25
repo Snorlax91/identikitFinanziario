@@ -57,7 +57,12 @@ app.get('/download', function (req, res) {
                 fileName = "IdentikitFinanziario_" + responses[4].trim().replaceAll(" ", "_") + ".pdf";
                 filesName.push(fileName);
                 document.path = dirname + fileName;
-                pdf.create(document, options)
+                pdf.create(document,  {
+                    childProcessOptions: {
+                      env: {
+                        OPENSSL_CONF: '/dev/null',
+                      },
+                    }}, options)
                     .then(result => {
                         workedRows++;
                         if(workedRows == rowsCount) {
