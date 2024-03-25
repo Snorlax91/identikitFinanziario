@@ -6,6 +6,11 @@ var pdf = require("pdf-creator-node")
 var fs = require('fs')
 const archiver = require('archiver');
 const ExcelJS = require('exceljs');
+const multer  = require('multer');
+const path = require('path');
+
+const upload = multer({ dest: 'uploads/' }); // Specifica la directory di destinazione per i file uploadati
+
   
 // Read HTML Template
 var html = fs.readFileSync('template.html', 'utf8')
