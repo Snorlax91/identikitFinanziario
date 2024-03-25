@@ -26,9 +26,18 @@ var document = {
 
 var options = { format: "A4", orientation: "portrait", border: "10mm" };
 
-app.get('/index', function (req, res){
-    res.end("<html><h1>ciao Elena!</h1></html>");
-})
+// Visualizza un modulo per caricare file
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+// Gestisci l'upload del file
+app.post('/upload', upload.single('file'), (req, res) => {
+    // req.file contiene le informazioni sul file caricato
+    console.log(req.file);
+    res.send('File caricato con successo!');
+});
+
 
 app.get('/download', function (req, res) {
     var filePath = "/my/file/path/..."; // Or format the path using the `id` rest param
