@@ -11,6 +11,7 @@
         }
         .introduzione{
             font-size: 11px;
+            margin-top: 10px;
         }
         .titolo-sezione{
             font-weight: bold;
@@ -18,19 +19,22 @@
             background-color: cadetblue;
             padding: 10px;
             font-size: 18px;
+            margin-top: 10px;
         }
         .domanda{
             font-weight: bold;
             font-size: 15px;
+            padding:5px;
         }
         .risposta{
             font-size: 11px;
+            padding:5px;
         }
     </style>
     <body>
         <div class="introduzione">
             Gentile {{responses.[4]}},
-            ecco le risposte che hai fornito in  {{responses.[2]}}  al tuo Identikit Finanziario.
+            ecco le risposte che hai fornito in {{responses.[2]}} al tuo Identikit Finanziario.
             Nel prossimo incontro, partiremo da qui per definire la strategia più corretta per raggiungere i tuoi obiettivi.
         </div>
         <div class="sezione">
@@ -43,18 +47,21 @@
             <div class="risposta">
                 {{responses.[5]}}
             </div>
+            <hr>
             <div class="domanda">
                 {{questions.[8]}}
             </div>
             <div class="risposta">
                 {{responses.[6]}}
             </div>
+            <hr>
             <div class="domanda">
                 {{questions.[9]}}
             </div>
             <div class="risposta">
                 {{responses.[7]}}
             </div>
+            <hr>
             <div class="domanda">
                 {{questions.[10]}}
             </div>
