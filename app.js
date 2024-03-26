@@ -150,7 +150,7 @@ app.get('/download', function (req, res) {
                         questions: questions,
                         responses: responses
                     }
-                    fileName = "IdentikitFinanziario_" + responses[4].trim().replaceAll(" ", "_") + ".pdf";
+                    fileName = "IdentikitFinanziario_" + responses[6].trim().replaceAll(" ", "_") + ".pdf";
                     filesName.push(fileName);
                     document.path = dirname + fileName;
                     pdf.create(document, {
