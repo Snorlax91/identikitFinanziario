@@ -12,7 +12,7 @@ const path = require('path');
 // Configura multer per l'upload dei file
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null, 'xlsx/'); // Directory di destinazione dei file
+        cb(null, './xlsx'); // Directory di destinazione dei file
     },
     filename: function(req, file, cb) {
         // Genera un nome univoco per il file
@@ -27,7 +27,7 @@ const upload = multer({storage: storage}); // Specifica la directory di destinaz
 // Read HTML Template
 var html = fs.readFileSync('template.html', 'utf8')
 
-const excelFilePath = 'xlsx/IdentikitFinanziario.xlsx';
+const excelFilePath = './xlsx/IdentikitFinanziario.xlsx';
 const workbook = new ExcelJS.Workbook();
 const dirname = "./identikit/";
 var uploadedFileName = "";
@@ -75,7 +75,11 @@ app.post('/upload', upload.single('file'), (req, res) => {
                 } else {
                     responses = [];
                     row.eachCell((cell, cellNumber) => {
-                        console.log(cellNumber, cell.value);
+                        
+                        //riempio con stringhe vuote i posti mancanti che a quanto pare la libreria excel salta
+                        while(cellNumber-1>responses.length)
+                            responses.push("");
+
                         if (cell.value)
                             responses.push(cell.value);
                         else
