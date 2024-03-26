@@ -115,6 +115,10 @@ app.post('/upload', upload.single('file'), (req, res) => {
                             console.log(result)
                         })
                         .catch(error => {
+                            workedRows++;
+                            if (workedRows == rowsCount) {
+                                zip(dirname, filesName, res);
+                            }
                             console.error(error)
                         });
                 }
