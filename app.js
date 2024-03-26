@@ -9,13 +9,13 @@ const ExcelJS = require('exceljs');
 const multer = require('multer');
 const path = require('path');
 
-const upload = multer({ dest: 'uploads/' }); // Specifica la directory di destinazione per i file uploadati
+const upload = multer({ dest: 'xlsx/' }); // Specifica la directory di destinazione per i file uploadati
 
 
 // Read HTML Template
 var html = fs.readFileSync('template.html', 'utf8')
 
-const excelFilePath = 'IdentikitFinanziario.xlsx';
+const excelFilePath = 'xlsx/IdentikitFinanziario.xlsx';
 const workbook = new ExcelJS.Workbook();
 const dirname = "./identikit/";
 
@@ -62,6 +62,7 @@ app.post('/upload', upload.single('file'), (req, res) => {
                 } else {
                     responses = [];
                     row.eachCell((cell, cellNumber) => {
+                        console.log(cellNumber, cell.value);
                         if (cell.value)
                             responses.push(cell.value);
                         else
