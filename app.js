@@ -87,7 +87,7 @@ app.post('/upload', upload.single('file'), (req, res) => {
                                 responses.push(convertStringToDate(cell.value));
                             } else {
                                 var s = cell.value + "";
-                                responses.push(s.replace(";", "<br>"));
+                                responses.push(s.replaceAll(";", "\\n"));
                             }
                         }
                         else
