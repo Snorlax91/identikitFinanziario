@@ -9,7 +9,19 @@ const ExcelJS = require('exceljs');
 const multer = require('multer');
 const path = require('path');
 
-const upload = multer({ dest: 'xlsx/' }); // Specifica la directory di destinazione per i file uploadati
+// Configura multer per l'upload dei file
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, 'xlsx/'); // Directory di destinazione dei file
+    },
+    filename: function(req, file, cb) {
+        // Genera un nome univoco per il file
+        console.log(file.filename);
+        cb(null, "IdentikitFinanziario.xlsx");
+    }
+});
+
+const upload = multer({storage: storage}); // Specifica la directory di destinazione per i file uploadati
 
 
 // Read HTML Template
@@ -18,6 +30,7 @@ var html = fs.readFileSync('template.html', 'utf8')
 const excelFilePath = 'xlsx/IdentikitFinanziario.xlsx';
 const workbook = new ExcelJS.Workbook();
 const dirname = "./identikit/";
+var uploadedFileName = "";
 
 var questions = [];
 var responses = [];
