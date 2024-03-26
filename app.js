@@ -83,8 +83,8 @@ app.post('/upload', upload.single('file'), (req, res) => {
                         if (cell.value){
                             if(cellNumber == 1 || cellNumber == 2) {
                                 // Formatta la data
-                                const formattedDate = cell.value.toLocaleDateString('it-IT', { year: 'numeric', month: '2-digit', day: '2-digit' });
-                                responses.push(formattedDate);
+                                //const formattedDate = cell.value.toLocaleDateString('it-IT', { year: 'numeric', month: '2-digit', day: '2-digit' });
+                                responses.push(cell.value);
                             } else {
                                 responses.push(cell.value.replace(";", "<br>"));
                             }
