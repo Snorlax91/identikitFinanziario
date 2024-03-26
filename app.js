@@ -8,6 +8,7 @@ const archiver = require('archiver');
 const ExcelJS = require('exceljs');
 const multer = require('multer');
 const path = require('path');
+const moment = require('moment');
 
 // Configura multer per l'upload dei file
 const storage = multer.diskStorage({
@@ -83,8 +84,7 @@ app.post('/upload', upload.single('file'), (req, res) => {
                         if (cell.value){
                             if(cellNumber == 1 || cellNumber == 2) {
                                 // Formatta la data
-                                //const formattedDate = cell.value.toLocaleDateString('it-IT', { year: 'numeric', month: '2-digit', day: '2-digit' });
-                                responses.push(cell.value);
+                                responses.push(convertStringToDate(cell.value));
                             } else {
                                 responses.push(cell.value.replace(";", "<br>"));
                             }
@@ -218,6 +218,17 @@ function zip(dirname, fileNames, res) {
     });
 
 }
+
+function convertStringToDate(inputString) {
+    // Analizza la stringa in formato data utilizzando moment.js
+    const date = moment(inputString, 'ddd MMM DD YYYY HH:mm:ss [GMT]Z');
+    
+    // Formatta la data nel formato dd/MM/YYYY
+    const formattedDate = date.format('DD/MM/YYYY');
+    
+    return formattedDate;
+}
+
 
 function removeFiles(directoryPath) {
 
