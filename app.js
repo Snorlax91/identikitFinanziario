@@ -226,6 +226,8 @@ function convertStringToDate(inputString) {
     
     // Formatta la data nel formato dd/MM/YYYY
     const formattedDate = date.format('DD/MM/YYYY');
+
+    console.log("formattedDate: ", formattedDate);
     
     return formattedDate;
 }
