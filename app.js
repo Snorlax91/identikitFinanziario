@@ -82,12 +82,12 @@ app.post('/upload', upload.single('file'), (req, res) => {
                             responses.push("");
 
                         if (cell.value){
-                            if(cellNumber == 1 || cellNumber == 2) {
+                            if(cellNumber == 3) {
                                 // Formatta la data
                                 responses.push(convertStringToDate(cell.value));
                             } else {
                                 var s = cell.value + "";
-                                responses.push(s.replaceAll(";", "\\n"));
+                                responses.push(s);
                             }
                         }
                         else
