@@ -37,9 +37,31 @@
         }
         .footer{
             width: 100%;
+            float: left;
         }
-        .footer img{
+        .footer-title {
+            text-align: center;
+            font-weight: bold;
             width: 100%;
+            padding:10px;            
+        }
+        .contatti-left{
+            width: 50%;
+            border-right: 1px #DCDCDC;
+            text-align: right;
+            float:left;
+            padding: 5px;
+        }
+        .contatti-right{
+            width: 50%;
+            text-align: left;
+            float:left;
+            padding: 5px;
+        }
+        .allianz{
+            width: 100%;
+            text-align: center;
+            padding: 5px;
         }
     </style>
     <body>
@@ -304,8 +326,19 @@
                 {{responses.[45]}}
             </div>
         </div>
-        <!--<div class="footer">
-            <img src="https://snorlax91.github.io/identikitFinanziario/footer.jpg" />
-        </div>-->
+        <div class="footer">
+            <div class="footer-title">Contatti</div>
+            <div class="contatti-left">
+                +39 351 853 8540<br/>
+                <a href="mailto:elena.ceccatoabbamonte@allianzbankfa.it">elena.ceccatoabbamonte@allianzbankfa.it</a>
+            </div>
+            <div class="contatti-right">
+                Viale della Repubblica, 138/A Treviso<br/>
+                0422 230566
+            </div>
+            <div class="allianz">
+                <a href="www.allianzbank.it">www.allianzbank.it</a>
+            </div>
+        </div>
     </body>
 </html>  
