@@ -43,7 +43,7 @@ var document = {
     path: ""
 };
 
-var options = { format: "A4", orientation: "portrait", border: "10mm" , timeout: "10000" };
+var options = { format: "A4", orientation: "portrait", border: "10mm" , timeout: "30000" };
 
 // Visualizza un modulo per caricare file
 app.get('/', (req, res) => {
